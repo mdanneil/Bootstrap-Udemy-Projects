@@ -26,7 +26,9 @@
             id="main-nav"
         >
             <div class="container">
-                <a href="index.html" class="navbar-brand">LoopLAB</a>
+                <a href="index.html" class="navbar-brand"
+                    >Loop<strong>LAB</strong></a
+                >
                 <button
                     class="navbar-toggler"
                     data-toggle="collapse"
@@ -37,7 +39,7 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a href="#home" class="nav-link">Home</a>
+                            <a href="#home-section" class="nav-link">Home</a>
                         </li>
                         <li class="nav-item">
                             <a href="#explore-head-section" class="nav-link"
@@ -346,6 +348,60 @@
             </div>
         </section>
 
+        <!-- Footer section -->
+        <footer id="main-footer" class="bg-dark">
+            <div class="container">
+                <div class="row">
+                    <div class="col text-center py-4">
+                        <h3>LoopLAB</h3>
+                        <p>Copyright &copy; <span id="year"></span></p>
+                        <button
+                            class="btn btn-outline-light"
+                            data-toggle="modal"
+                            data-target="#contantModal"
+                        >
+                            Contact us
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!--  Contact Modal -->
+        <div class="modal fade text-dark" id="contantModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Contact us</h5>
+                        <button class="close" data-dismiss="modal">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="text" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea class="form-control"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary btn-block">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!--Script Section-->
         <script
             src="http://code.jquery.com/jquery-3.3.1.min.js"
@@ -360,7 +416,7 @@
 
         <script>
             //Get current year for copyright
-            $("#year").text(new Date().getFullYear);
+            $("#year").text(new Date().getFullYear());
         </script>
     </body>
 </html>
