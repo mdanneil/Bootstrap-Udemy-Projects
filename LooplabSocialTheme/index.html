@@ -19,7 +19,7 @@
         <link rel="stylesheet" href="css/style.css" />
         <title>Bootstrap Theme</title>
     </head>
-    <body>
+    <body data-spy="scroll" data-target="#main-nav" id="home">
         <!-- Navbar Section -->
         <nav
             class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top"
@@ -417,6 +417,27 @@
         <script>
             //Get current year for copyright
             $("#year").text(new Date().getFullYear());
+
+            //Enable scrollspy to highlight sections in navbar
+            $("body").scrollspy({ target: "#main-nav" });
+
+            //Enable smooth scrolling
+            $("#main-nav a").on("click", function (event) {
+                if (this.hash !== "") {
+                    event.preventDefault();
+                    const hash = this.hash;
+
+                    $("html, body").animate(
+                        {
+                            scrollTop: $(hash).offset().top,
+                        },
+                        800,
+                        function () {
+                            window.location.hash = hash;
+                        }
+                    );
+                }
+            });
         </script>
     </body>
 </html>
