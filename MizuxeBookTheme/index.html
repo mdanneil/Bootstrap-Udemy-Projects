@@ -15,9 +15,12 @@
     <link rel="stylesheet" href="css/style.css" />
     <title>Bootstrap theme</title>
   </head>
-  <body>
+  <body id="home" data-spy="scroll" data-target="#main-nav">
     <!-- Navbar Section -->
-    <nav class="navbar navbar-expand-md navbar-light fixed-top py-4">
+    <nav
+      class="navbar navbar-expand-md navbar-light fixed-top py-4"
+      id="main-nav"
+    >
       <div class="container">
         <a href="#home" class="navbar-brand">
           <img
@@ -419,7 +422,7 @@
       </div>
     </section>
 
-    <!-- Contact section -->
+    <!-- Contact Section -->
     <section id="contact" class="bg-light py-5">
       <div class="container">
         <div class="row">
@@ -477,6 +480,20 @@
       </div>
     </section>
 
+    <!-- Footer Section -->
+    <footer id="main-footer" class="py-5 bg-primary text-white">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-md-6 ml-auto">
+            <p class="lead">
+              Copyright &copy;
+              <span id="year"></span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
     <!--Script Section-->
     <script
       src="http://code.jquery.com/jquery-3.3.1.min.js"
@@ -496,7 +513,28 @@
 
     <script>
       //Get current year for copyright
-      $('#year').text(new Date().getFullYear)
+      $('#year').text(new Date().getFullYear())
+
+      //Enable scrollspy to highlight sections in navbar
+      $('body').scrollspy({ target: '#main-nav' })
+
+      //Enable smooth scrolling
+      $('#main-nav a').on('click', function (event) {
+        if (this.hash !== '') {
+          event.preventDefault()
+          const hash = this.hash
+
+          $('html, body').animate(
+            {
+              scrollTop: $(hash).offset().top,
+            },
+            800,
+            function () {
+              window.location.hash = hash
+            }
+          )
+        }
+      })
     </script>
   </body>
 </html>
